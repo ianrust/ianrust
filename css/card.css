@@ -1,6 +1,38 @@
-#front{
+.card {
 	background-color:#FAEDDE;
-	width:800px;
-	margin:0 auto;
-	display: block;
+	width:500px;
+	margin: auto;
+  	position: absolute;
+  	top: 0; left: 0; bottom: 0; right: 0;
+  	z-index:2;
+  	border-radius: 2px;
+	-moz-box-shadow: 30px 30px 50px 1px #999;
+	-webkit-box-shadow: 30px 30px 50px 1px #999;
+}
+
+#front {
+	height: 250px;
+	text-align: center;
+}
+
+#back {
+	display:none;
+	text-align: left;
+}
+
+#bcard {
+	position:relative;
+	top: 50%;
+    left: 50%;
+    height: 30%;
+    width: 50%;
+    margin: -10% 0 0 -25%;
+}
+
+#name {
+	font-size:50px;
+}
+
+#occupation {
+	font-size:20px;
 }
