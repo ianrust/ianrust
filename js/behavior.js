@@ -1,6 +1,8 @@
-$(document).ready(runBehavior); 
-
 $('#front').click(setEmail);
+
+$('.flipper').click(flip)
+
+var getEmail = setEmail()
 
 $('.flipper').click(flip)
 
@@ -14,8 +16,9 @@ function flip() {
 
 }
 
+
 function runBehavior() {
-    setEmail();
+    getemail();
 };
 
 function setEmail() {
@@ -27,8 +30,10 @@ function setEmail() {
         dataType: "jsonp",
         jsonpCallback: 'RandomWordComplete'
     });
+
+    email_string=
 };
 
 function RandomWordComplete(data) {
-    $('#randomword').text(data.Word.replace(/(\r\n|\n|\r)/gm,""));
+    return (data.Word.slice(0,-2)+'@ianru.st');
 };
