@@ -6,24 +6,27 @@
 </head>
 <body>
 
-	<div class="flipper" id="notflipped">
+	<div id="toflip" class="notflipped">
 
 		<div id="front" class="card">
 
 			<div class="bcard">
 				<div id="name"> ianru.st </div>
-				<div id="occupation"> Automator, Human </div>
+				<div id="occupation" class="flipButton clickable"> Automator, Human </div>
 			</div>
 		</div>
 
 		<div id="back" class="card">
+			<div id="backName" class="flipButton clickable">ianru.st</div>
 			<div class="bcard">
-				<a href="mailto:anyone@ianru.st"><div id="email"class="clickable"></div></a>
+				<a id="emailLink" href="mailto:anyone@ianru.st" target="_blank"><div id="email"class="icon clickable"></div></a>
 			</div>
 
 		</div>
+
 	</div>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 	<script src="js/behavior.js"></script>
 </body>
 
