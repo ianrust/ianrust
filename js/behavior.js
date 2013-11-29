@@ -2,7 +2,7 @@ $(document).ready(runBehavior);
 
 $('#front').click(setEmail);
 
-$('.flipper').click(flip)
+$('.flipper').click(flip);
 
 function flip() {
     if (this.id==="flipped") {
@@ -19,16 +19,22 @@ function runBehavior() {
 };
 
 function setEmail() {
-    var requestStr = "http://randomword.setgetgo.com/get.php";
 
+
+    var requestStr = "http://randomword.setgetgo.com/get.php";
+    var email;
     $.ajax({
         type: "GET",
         url: requestStr,
-        dataType: "jsonp",
-        jsonpCallback: 'RandomWordComplete'
+        dataType: "jsonp",        
+        success: function (data) {
+            email=RandomWordComplete(data);
+            console.log(email);
+        }
     });
 };
 
 function RandomWordComplete(data) {
-    $('#randomword').text(data.Word.replace(/(\r\n|\n|\r)/gm,""));
+    var email="mailto:"+data.Word.replace(/(\r\n|\n|\r)/gm)+"@ianru.st";
+    return email
 };

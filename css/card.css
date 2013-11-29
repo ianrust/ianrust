@@ -17,7 +17,8 @@
 }
 
 .card {
-	/*background-color:#FFF9E3;*/
+	border : 5px;
+	border-color: #FFFFFF;
 	background-image:url('creampaper.png');
 	width:500px;
 	height: 250px;
@@ -37,10 +38,29 @@
 
 #back {
 	-webkit-transform: rotateY(180deg);
-	text-align: left;
+	padding-left: 10%;
+	padding-right: 10%;
+	padding-top: 10%;
 }
 
-#bcard {
+#email {
+	background-image: url("mail-icon.png");
+	width:100px;
+}
+
+.clickable {
+	position: relative;
+	margin-top: 40%;
+	margin: 0 auto;
+	background-position: right;
+	height:64px;
+}
+
+.clickable:hover {
+	background-position: left;
+}
+
+.bcard {
 	position:relative;
 	top: 50%;
     left: 50%;
@@ -50,7 +70,7 @@
 }
 
 #name {
-	font-size:50px;
+	font-size:75px;
 }
 
 #occupation {
