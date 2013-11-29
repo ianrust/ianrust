@@ -54,7 +54,7 @@
 .icon {
 	position: relative;
 	margin: 0 auto;
-	margin-top: 50%;
+	margin-top: 32px;
 	background-position: right;
 	height:64px;
 }
