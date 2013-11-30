@@ -40,6 +40,11 @@
 	padding-top: 10%;
 }
 
+#header {
+	width=100%;
+	top:0px;
+}
+
 #github {
 	background-image: url("GitHub-Mark-64px.png");
 	width:64px;
