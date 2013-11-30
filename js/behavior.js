@@ -9,17 +9,29 @@ $(document).ready(function() {
 
     var spinTime=500;
 
-    var applyAnimation = function(now,fx) {        
-      toFlip.css('-webkit-transform','rotateY('+now+'deg)');
-      toFlip.css('-moz-transform','rotateY('+now+'deg)'); 
-      toFlip.css('-ms-transform','rotateY('+now+'deg)');
-      toFlip.css('-o-transform','rotateY('+now+'deg)');
-      toFlip.css('transform','rotateY('+now+'deg)');
+    var applyAnimation = function(now,fx) {
+      if (fx.prop==='deg') {
+          toFlip.css('-webkit-transform','rotateY('+fx.now+'deg)');
+          toFlip.css('-moz-transform','rotateY('+fx.now+'deg)'); 
+          toFlip.css('-ms-transform','rotateY('+fx.now+'deg)');
+          toFlip.css('-o-transform','rotateY('+fx.now+'deg)');
+          toFlip.css('transform','rotateY('+fx.now+'deg)');
+      }
+      else if (fx.prop==='height') {
+            $('.card').css('height',fx.now+"px")
+      }
+      else {
+            $('#toflip').css('top',fx.now+"px")
+      }
     }
 
     var finishAnimation=function() {
         if (toFlip.hasClass("flipped")) {
-            toFlip.animate({deg:0},
+            $({height:300,deg:90,top:95}).animate({
+                    deg:0
+                    , height:250
+                    , top:120
+                },
                 {
                     step:applyAnimation,
                     duration:spinTime
@@ -30,7 +42,11 @@ $(document).ready(function() {
             ianEmail.get();
         }
         else {
-            toFlip.animate({deg:180},
+            $({height:300,deg:90,top:95}).animate({
+                    deg:180
+                    , height:250
+                    , top:120
+                },
                 {
                     step:applyAnimation,
                     duration:spinTime
@@ -43,8 +59,11 @@ $(document).ready(function() {
     }
 
     $('.flipButton').unbind('click').click(function() {
-        console.log(toFlip.hasClass("flipped"))
-        toFlip.animate({deg:90},
+        $({height:250,deg:0,top:120}).animate({
+                height:300,
+                deg:90,
+                top:95
+            },
             {
                 step:applyAnimation,
                 complete:finishAnimation,
