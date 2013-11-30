@@ -4,8 +4,10 @@ $(document).ready(function() {
     ianEmail.set();
 
     var toFlip=$('#toflip')
+    var card=$('.card')
     var front=$('#front')
     var back=$('#back')
+    var header=$('#header')
 
     var spinTime=500;
 
@@ -21,8 +23,14 @@ $(document).ready(function() {
       else if (fx.prop==='height') {
             $('.card').css('height',fx.now+"px")
       }
-      else {
-            $('#toflip').css('top',fx.now+"px")
+      else if (fx.prop==='top') {
+            toFlip.css('top',fx.now+"px")
+      }
+      else if (fx.prop==='width') {
+            console.log(fx.now);
+            toFlip.css('width',fx.now+"px");
+            card.css('width',fx.now+"px");
+            card.css('margin-left',-fx.now/2+"px");
       }
     }
 
@@ -38,7 +46,7 @@ $(document).ready(function() {
                     duration:spinTime
                 });
             back.css('z-index',1);
-            front.css('z-index',2);
+            front.css('z-index',3);
             toFlip.switchClass("flipped","notflipped");
             ianEmail.get();
         }
@@ -52,11 +60,27 @@ $(document).ready(function() {
                     step:applyAnimation,
                     duration:spinTime
                 });
-            back.css('z-index',2);
+            back.css('z-index',3);
             front.css('z-index',1);
             toFlip.switchClass("notflipped","flipped");
             ianEmail.set();   
         }
+    }
+
+    var finishBanner = function() {
+        console.log("gothere")
+        $({deg:90}).animate({
+            deg:0
+        },
+        {
+              step: applyAnimation
+            , duration:spinTime
+        });
+        back.css('z-index',1);
+        back.css('display','none');
+        front.css('z-index',1);
+        front.css('display','none');
+        header.css('z-index',3);
     }
 
     $('.flipButton').unbind('click').click(function() {
@@ -70,6 +94,20 @@ $(document).ready(function() {
                 complete:finishAnimation,
                 duration:spinTime
             });
+    });
+
+    $('.tobanner').unbind('click').click(function() {
+        $({height:250,top:120,deg:180,width:450}).animate({
+              height:50
+            , deg:90
+            , top:0
+            , width: window.innerWidth
+        },
+        {
+              step: applyAnimation
+            , complete:finishBanner
+            , duration:spinTime
+        });
     });
 
 }
