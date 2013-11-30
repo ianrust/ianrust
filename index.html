@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <head>
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="stylesheet" href="css/card.css">
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src="js/behavior.js"></script>
 </head>
 <body>
 
-	<div class="flipper" id="notflipped">
+	<div id="toflip" class="notflipped">
 
 		<div id="front" class="card">
 
-			<div id="bcard">
+			<div class="bcard">
 				<div id="name"> ianru.st </div>
-				<div id="occupation"> Automator, Human </div>
+				<div id="occupation" class="flipButton clickable"> Automator, Human </div>
 			</div>
 		</div>
 
 		<div id="back" class="card">
-
-			<div id="github" class="clickable"></div>			<div id="email" class="clickable"></div>
+			<div id="backName" class="flipButton clickable">ianru.st</div>
+			<div class="bcard">
+				<a id="emailLink" href="mailto:anyone@ianru.st" target="_blank"><div id="email"class="icon clickable"></div></a>
+				<a id="ghLink" href="https://github.com/ianrust" target="_blank"><div id="github"class="icon clickable"></div></a>
+			</div>
 
 		</div>
+
 	</div>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 	<script src="js/behavior.js"></script>
 </body>
 
